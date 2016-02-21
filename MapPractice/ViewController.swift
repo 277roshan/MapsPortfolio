@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             )
                             
                             
-                            annotation.title = name + vicinity
+                            annotation.title = name + vicinity //adding vicinity 
                             
                             
                             self.mapView.addAnnotation(annotation)
