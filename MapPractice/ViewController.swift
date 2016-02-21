@@ -14,9 +14,6 @@ let searchKey = ""
 let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
 let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
 
-
-
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -24,8 +21,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
         
         let delta = 0.03
         let center = CLLocationCoordinate2DMake(38.90, -77.016)
@@ -86,11 +81,6 @@ class ViewController: UIViewController {
             
         }
         task.resume()
-        
-        
-        
-        //        self.mapView.setRegion(region, animated: true)
-        
         
     }
     
