@@ -18,22 +18,26 @@ var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?loca
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    
-   
     @IBOutlet weak var SearchText: UITextField! // User entered search text
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SearchText.becomeFirstResponder()
-        annotate()
+        SearchText.becomeFirstResponder() //make the keyboard appear
+        annotate() //call annotate function to make json request and put pins on the map
         
     }
     
     
     func annotate()
     {
+        //in this function we set the map location
+        //we start a NSURLsession which allows us to make JSON request
+        //we make the JSON request
+        //we handle the JSON data
+        //we get the longitude and latitude for the location
+        //we find the coordinates
+        //we put the pin on the map
         
         let delta = 0.03
         let center = CLLocationCoordinate2DMake(38.90, -77.016)
@@ -90,12 +94,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
         }
         task.resume()
-        
-
     }
     
     
+    
     func getCoords(data: [String:AnyObject]) -> [Double]{
+        //we get the coordinates using this function
         let c = data["location"] as![String: AnyObject]
         print (c)
         return [c["lat"] as! Double, c["lng"] as! Double]
@@ -108,19 +112,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // We remove all annotations
+        // We get the search key and make the search
+        // We put new pins 
+        // api call sometimes takes long time, so have patience
         
         mapView.removeAnnotations(mapView.annotations)
         SearchText.resignFirstResponder()
         searchKey = SearchText.text!
-        
         baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
-        
-
-        
         annotate()
-        
-        
-        
         return true
     }
     
