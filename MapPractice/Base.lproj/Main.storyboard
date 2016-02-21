@@ -19,22 +19,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BcS-ua-jGJ">
-                                <rect key="frame" x="20" y="72" width="560" height="520"/>
+                                <rect key="frame" x="20" y="160" width="560" height="432"/>
                             </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter search text (e.g. Star Bucks)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTO-8T-NvA">
+                                <rect key="frame" x="25" y="98" width="472" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aUQ-pB-J8X"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hu1-Ou-kbU"/>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="KPm-5b-V8s"/>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Lzc-XL-Zn3"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BcS-ua-jGJ" secondAttribute="bottom" constant="8" id="Ovc-1V-ikU"/>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="VHG-so-R42"/>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="l0G-bC-Y3V"/>
-                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lfG-ni-IAf"/>
+                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="top" secondItem="RTO-8T-NvA" secondAttribute="bottom" constant="32" id="4Cd-qv-xLR"/>
+                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HWc-RT-8qd"/>
+                            <constraint firstItem="BcS-ua-jGJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Knt-ea-Wgd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RTO-8T-NvA" secondAttribute="trailing" constant="83" id="TEi-W3-a5P"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BcS-ua-jGJ" secondAttribute="bottom" constant="8" symbolic="YES" id="d6e-mv-jon"/>
+                            <constraint firstItem="RTO-8T-NvA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="f1G-nS-Syv"/>
+                            <constraint firstItem="RTO-8T-NvA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="uFJ-m5-wtN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nak-wd-lQM"/>
                     <connections>
+                        <outlet property="SearchText" destination="RTO-8T-NvA" id="Xhq-TJ-CcI"/>
                         <outlet property="mapView" destination="BcS-ua-jGJ" id="6Oo-ul-3f0"/>
                     </connections>
                 </viewController>

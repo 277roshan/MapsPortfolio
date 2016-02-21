@@ -10,17 +10,30 @@ import UIKit
 import MapKit
 
 
-let searchKey = ""
+var searchKey = ""
 let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
-let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+   
+    @IBOutlet weak var SearchText: UITextField! // User entered search text
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        SearchText.becomeFirstResponder()
+        annotate()
+        
+    }
+    
+    
+    func annotate()
+    {
         
         let delta = 0.03
         let center = CLLocationCoordinate2DMake(38.90, -77.016)
@@ -36,7 +49,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            //do conver to json
+            //do convert to json
             
             do{
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
@@ -61,8 +74,6 @@ class ViewController: UIViewController {
                             annotation.title = name
                             
                             self.mapView.addAnnotation(annotation)
-                            
-                            
                         }
                         
                     }
@@ -77,11 +88,10 @@ class ViewController: UIViewController {
                 print("error serializing json")
             }
             
-            
-            
         }
         task.resume()
         
+
     }
     
     
@@ -96,6 +106,27 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        mapView.removeAnnotations(mapView.annotations)
+        SearchText.resignFirstResponder()
+        searchKey = SearchText.text!
+        
+        baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+        
+
+        
+        annotate()
+        
+        
+        
+        return true
+    }
+    
+ 
+    
+    
     
     
 }
