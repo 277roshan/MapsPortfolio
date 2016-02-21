@@ -14,6 +14,7 @@
 		74D4BFBF1C765A7B00AAC8EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D4BFBD1C765A7B00AAC8EA /* LaunchScreen.storyboard */; };
 		74D4BFCA1C765A7B00AAC8EA /* MapPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFC91C765A7B00AAC8EA /* MapPracticeTests.swift */; };
 		74D4BFD51C765A7B00AAC8EA /* MapPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFD41C765A7B00AAC8EA /* MapPracticeUITests.swift */; };
+		74D4BFE31C765B1200AAC8EA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D4BFE21C765B1200AAC8EA /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		74D4BFD01C765A7B00AAC8EA /* MapPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D4BFD41C765A7B00AAC8EA /* MapPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPracticeUITests.swift; sourceTree = "<group>"; };
 		74D4BFD61C765A7B00AAC8EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D4BFE21C765B1200AAC8EA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D4BFE31C765B1200AAC8EA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +80,7 @@
 		74D4BFA81C765A7B00AAC8EA = {
 			isa = PBXGroup;
 			children = (
+				74D4BFE21C765B1200AAC8EA /* MapKit.framework */,
 				74D4BFB31C765A7B00AAC8EA /* MapPractice */,
 				74D4BFC81C765A7B00AAC8EA /* MapPracticeTests */,
 				74D4BFD31C765A7B00AAC8EA /* MapPracticeUITests */,
@@ -194,6 +198,11 @@
 					74D4BFB01C765A7B00AAC8EA = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = XBZX4KV28G;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					74D4BFC41C765A7B00AAC8EA = {
 						CreatedOnToolsVersion = 7.2;
