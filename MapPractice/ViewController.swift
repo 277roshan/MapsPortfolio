@@ -110,23 +110,38 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                         //process items here
                         print (items)
                         
-                        if let name = items["name"] as? String, let vicinity = items["vicinity"] as? String{
+                        if let name = items["name"] as? String, let vicinity = items["vicinity"] as? String, let placeID = items["place_id"]{
                             
                             let coords: [Double] = self.getCoords(items["geometry"] as! Dictionary)
                             
                             
+                            
+                            
                             let annotation = MKPointAnnotation()
                             
-                            annotation.coordinate = CLLocationCoordinate2D(
+                            
+                            let coordinate = CLLocationCoordinate2D(
                                 latitude: coords[0],
                                 longitude: coords[1]
                             )
-                            annotation.title = name //adding vicinity
-                            annotation.subtitle = vicinity
+
+                            
+//                            annotation.coordinate = CLLocationCoordinate2D(
+//                                latitude: coords[0],
+//                                longitude: coords[1]
+//                            )
+//                            annotation.title = name //adding vicinity
+//                            annotation.subtitle = vicinity
+                            
+                            
+                            let a = CustomAnnotation(coordinate: coordinate, title: name, subtitle: vicinity, placeId: placeID as! String)
+                            
+                           
+                            
                             
                             dispatch_async(dispatch_get_main_queue()){
                                 self.mapView.setRegion(region, animated: true)
-                                self.mapView.addAnnotation(annotation)
+                                self.mapView.addAnnotation(a)
                             }
                             
                             

@@ -18,11 +18,13 @@ class CustomAnnotation: NSObject, MKAnnotation{
     let placeId: String
     
     
+    
     init (coordinate:CLLocationCoordinate2D, title:NSString, subtitle:NSString, placeId:String){
         self.title = title as String
         self.subtitle = subtitle as String
         self.coordinate=coordinate
         self.placeId = placeId
+        
         
         super.init()
         
