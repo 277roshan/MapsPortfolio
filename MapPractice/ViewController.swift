@@ -8,25 +8,77 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
 var searchKey = ""
 let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
-var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+let delta = 0.02
+
+var latitude = "38.9222"
+var longitude = "-77.0194"
+var center = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
+var baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+var region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta))
 
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var SearchText: UITextField! // User entered search text
     
+
+    
+    let locationManager = CLLocationManager()
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SearchText.becomeFirstResponder() //make the keyboard appear
-        annotate() //call annotate function to make json request and put pins on the map
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
         
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+        
+        SearchText.becomeFirstResponder() //make the keyboard appear
     }
+    
+    
+    
+ 
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(1)
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        latitude = String(locValue.latitude)
+        longitude = String(locValue.longitude)
+        center = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
+        locationManager.stopUpdatingLocation()
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(
+            latitude: Double(latitude)!,
+            longitude: Double(longitude)!
+        )
+        
+        annotate() //call annotate function to make json request and put pins on the map
+    }
+  
+    
+   
     
     
     func annotate()
@@ -39,9 +91,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //we find the coordinates
         //we put the pin on the map
         
-        let delta = 0.03
-        let center = CLLocationCoordinate2DMake(38.90, -77.016)
-        let region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL)!)
@@ -52,9 +101,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 print (error!.localizedDescription)
                 return
             }
-            
             //do convert to json
-            
             do{
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 
@@ -74,14 +121,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                 latitude: coords[0],
                                 longitude: coords[1]
                             )
-                            
-                            
-                            annotation.title = name + vicinity //adding vicinity 
+                            annotation.title = name //adding vicinity
+                            annotation.subtitle = vicinity
                             
                             
                             self.mapView.addAnnotation(annotation)
+                            
+                            
                         }
-                        
                     }
                     //when finished, update the UI on the main thread
                     dispatch_async(dispatch_get_main_queue()){
@@ -95,6 +142,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
+        
         task.resume()
     }
     
@@ -119,15 +167,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // We put new pins 
         // api call sometimes takes long time, so have patience
         
-        mapView.removeAnnotations(mapView.annotations)
+        self.mapView.removeAnnotations(mapView.annotations)
+       
+        
         SearchText.resignFirstResponder()
+        
         searchKey = SearchText.text!
-        baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=38.90,-77.016&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+        baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
+
+        
+        
+        
         annotate()
+        
+        
         return true
     }
     
+   
+    
+    
+    //MARK:- Annotations
+    
+
+
+    
  
+//
+//
+    
     
     
     

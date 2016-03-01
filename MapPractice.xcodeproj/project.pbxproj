@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		747396811C7F9307009D884C /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747396801C7F9307009D884C /* DataHolder.swift */; };
+		749805091C7CF1780032D56A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749805081C7CF1780032D56A /* CoreLocation.framework */; };
 		74D4BFB51C765A7B00AAC8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFB41C765A7B00AAC8EA /* AppDelegate.swift */; };
 		74D4BFB71C765A7B00AAC8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFB61C765A7B00AAC8EA /* ViewController.swift */; };
 		74D4BFBA1C765A7B00AAC8EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D4BFB81C765A7B00AAC8EA /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		747396801C7F9307009D884C /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		749805081C7CF1780032D56A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		74D4BFB11C765A7B00AAC8EA /* MapPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D4BFB41C765A7B00AAC8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D4BFB61C765A7B00AAC8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749805091C7CF1780032D56A /* CoreLocation.framework in Frameworks */,
 				74D4BFE31C765B1200AAC8EA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +85,7 @@
 		74D4BFA81C765A7B00AAC8EA = {
 			isa = PBXGroup;
 			children = (
+				749805081C7CF1780032D56A /* CoreLocation.framework */,
 				74D4BFE21C765B1200AAC8EA /* MapKit.framework */,
 				74D4BFB31C765A7B00AAC8EA /* MapPractice */,
 				74D4BFC81C765A7B00AAC8EA /* MapPracticeTests */,
@@ -103,6 +109,7 @@
 			children = (
 				74D4BFB41C765A7B00AAC8EA /* AppDelegate.swift */,
 				74D4BFB61C765A7B00AAC8EA /* ViewController.swift */,
+				747396801C7F9307009D884C /* DataHolder.swift */,
 				74D4BFB81C765A7B00AAC8EA /* Main.storyboard */,
 				74D4BFBB1C765A7B00AAC8EA /* Assets.xcassets */,
 				74D4BFBD1C765A7B00AAC8EA /* LaunchScreen.storyboard */,
@@ -269,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D4BFB71C765A7B00AAC8EA /* ViewController.swift in Sources */,
+				747396811C7F9307009D884C /* DataHolder.swift in Sources */,
 				74D4BFB51C765A7B00AAC8EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +502,7 @@
 				74D4BFDB1C765A7B00AAC8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74D4BFDC1C765A7B00AAC8EA /* Build configuration list for PBXNativeTarget "MapPracticeTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +511,7 @@
 				74D4BFDE1C765A7B00AAC8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74D4BFDF1C765A7B00AAC8EA /* Build configuration list for PBXNativeTarget "MapPracticeUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +520,7 @@
 				74D4BFE11C765A7B00AAC8EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
