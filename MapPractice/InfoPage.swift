@@ -12,6 +12,7 @@ import MapKit
 
 class DetailViewController: UIViewController{
     
+    @IBOutlet weak var coordinateSet: UILabel!
     @IBOutlet weak var subtitleSet: UILabel!
     @IBOutlet weak var titleSet: UILabel!
     //var cafe_titl: MKAnnotation?
@@ -20,8 +21,9 @@ class DetailViewController: UIViewController{
     
     override func viewDidLoad() {
         print(cafe_title?.placeId)
-        titleSet.text = cafe_title!.title! 
+        titleSet.text = cafe_title!.title!
         subtitleSet.text = cafe_title!.subtitle!
+        coordinateSet.text = String(cafe_title!.coordinate.longitude) + "," + String(cafe_title!.coordinate.latitude)
     }
     
 
