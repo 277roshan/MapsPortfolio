@@ -79,11 +79,11 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         let title = location.title
         let subtitle = location.subtitle
         let placeId = location.placeId
-        let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
-        presentViewController(alert, animated:true, completion:nil)
+        //let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
+        //alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
+        //presentViewController(alert, animated:true, completion:nil)
         print ("we are here")
-        // performSegueWithIdentifier("hello", sender: self)
+        performSegueWithIdentifier("godetail", sender: self)
         
     }
     
