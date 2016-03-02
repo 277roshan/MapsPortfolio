@@ -28,12 +28,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var SearchText: UITextField! // User entered search text
     
-
-    
     let locationManager = CLLocationManager()
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,11 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
     
     
-  
-    
-    
-   
-    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myspot")
         annotationView.animatesDrop = true
@@ -79,9 +71,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         let title = location.title
         let subtitle = location.subtitle
         let placeId = location.placeId
-        //let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
-        //alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
-        //presentViewController(alert, animated:true, completion:nil)
+        let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
+        presentViewController(alert, animated:true, completion:nil)
       
         performSegueWithIdentifier("godetail", sender: view)
         
