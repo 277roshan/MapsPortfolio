@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import MapKit
 
 
 class DetailViewController: UIViewController{
     
     @IBOutlet weak var titleSet: UILabel!
-    var cafe_title: String?
+    var cafe_titl: MKAnnotation?
     
     
     override func viewDidLoad() {
-        print(cafe_title)
-        titleSet.text = cafe_title
+        titleSet.text = cafe_titl!.title!
     }
     
 

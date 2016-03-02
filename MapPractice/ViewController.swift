@@ -83,7 +83,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         if (segue.identifier == "godetail")
         {
             let vc = segue.destinationViewController as! DetailViewController
-            vc.cafe_title = (sender as! MKAnnotationView).annotation!.title!
+            vc.cafe_titl = (sender as! MKAnnotationView).annotation!
             
         }
     }
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(1)
+        
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         
