@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
 //        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
 //        presentViewController(alert, animated:true, completion:nil)
       
-        performSegueWithIdentifier("godetail", sender: view)
+        performSegueWithIdentifier("godetail", sender: location)
         
     }
     
@@ -83,7 +83,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         if (segue.identifier == "godetail")
         {
             let vc = segue.destinationViewController as! DetailViewController
-            vc.cafe_titl = (sender as! MKAnnotationView).annotation!
+            //vc.cafe_titl = (sender as! MKAnnotationView).annotation!
+            vc.cafe_title = (sender as? CustomAnnotation)
+            
             
         }
     }

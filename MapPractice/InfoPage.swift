@@ -13,11 +13,13 @@ import MapKit
 class DetailViewController: UIViewController{
     
     @IBOutlet weak var titleSet: UILabel!
-    var cafe_titl: MKAnnotation?
+    //var cafe_titl: MKAnnotation?
+    var cafe_title: CustomAnnotation?
     
     
     override func viewDidLoad() {
-        titleSet.text = cafe_titl!.title!
+        print(cafe_title?.placeId)
+        titleSet.text = cafe_title!.title!
     }
     
 
