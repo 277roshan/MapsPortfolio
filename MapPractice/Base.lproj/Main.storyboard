@@ -78,15 +78,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpo-6d-9Fw">
+                                <rect key="frame" x="279" y="249" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LXR-P5-Ssu" firstAttribute="top" secondItem="O7Z-kd-625" secondAttribute="bottom" constant="106" id="T0o-x6-fbG"/>
                             <constraint firstItem="LXR-P5-Ssu" firstAttribute="centerX" secondItem="SaS-MQ-e9V" secondAttribute="centerX" id="hCm-Gk-HR7"/>
                             <constraint firstItem="EDz-ec-NsU" firstAttribute="top" secondItem="LXR-P5-Ssu" secondAttribute="bottom" constant="409" id="pKI-DB-mHu"/>
+                            <constraint firstItem="Jpo-6d-9Fw" firstAttribute="centerX" secondItem="SaS-MQ-e9V" secondAttribute="centerX" id="tBi-p1-cLu"/>
+                            <constraint firstItem="Jpo-6d-9Fw" firstAttribute="top" secondItem="LXR-P5-Ssu" secondAttribute="bottom" constant="58" id="u0w-aw-U3R"/>
+                            <constraint firstItem="EDz-ec-NsU" firstAttribute="top" secondItem="Jpo-6d-9Fw" secondAttribute="bottom" constant="330" id="wYv-4k-7dp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="subtitleSet" destination="Jpo-6d-9Fw" id="5wd-O1-cxh"/>
                         <outlet property="titleSet" destination="bzx-n9-EFn" id="WgS-by-7ux"/>
                     </connections>
                 </viewController>
