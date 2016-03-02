@@ -82,10 +82,20 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         //let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
         //alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
         //presentViewController(alert, animated:true, completion:nil)
-        print ("we are here")
-        performSegueWithIdentifier("godetail", sender: self)
+      
+        performSegueWithIdentifier("godetail", sender: view)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "godetail")
+        {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.cafe_title = (sender as! MKAnnotationView).annotation!.title!
+            
+        }
+    }
+    
     
     
     

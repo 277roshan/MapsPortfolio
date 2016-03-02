@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1057" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="EP0-SZ-qEl">
             <objects>
-                <viewController id="775-Kk-NzG" sceneMemberID="viewController">
+                <viewController id="775-Kk-NzG" customClass="DetailViewController" customModule="MapPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O7Z-kd-625"/>
                         <viewControllerLayoutGuide type="bottom" id="EDz-ec-NsU"/>
@@ -66,8 +66,29 @@
                     <view key="view" contentMode="scaleToFill" id="SaS-MQ-e9V">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LXR-P5-Ssu">
+                                <rect key="frame" x="284" y="170" width="34" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzx-n9-EFn">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LXR-P5-Ssu" firstAttribute="top" secondItem="O7Z-kd-625" secondAttribute="bottom" constant="106" id="T0o-x6-fbG"/>
+                            <constraint firstItem="LXR-P5-Ssu" firstAttribute="centerX" secondItem="SaS-MQ-e9V" secondAttribute="centerX" id="hCm-Gk-HR7"/>
+                            <constraint firstItem="EDz-ec-NsU" firstAttribute="top" secondItem="LXR-P5-Ssu" secondAttribute="bottom" constant="409" id="pKI-DB-mHu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleSet" destination="bzx-n9-EFn" id="WgS-by-7ux"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wod-K4-joC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

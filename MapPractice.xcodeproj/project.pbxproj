@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74514FE31C86691C00540EEC /* InfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74514FE21C86691C00540EEC /* InfoPage.swift */; };
 		747396811C7F9307009D884C /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747396801C7F9307009D884C /* DataHolder.swift */; };
 		749805091C7CF1780032D56A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749805081C7CF1780032D56A /* CoreLocation.framework */; };
 		74D4BFB51C765A7B00AAC8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFB41C765A7B00AAC8EA /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74514FE21C86691C00540EEC /* InfoPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPage.swift; sourceTree = "<group>"; };
 		747396801C7F9307009D884C /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		749805081C7CF1780032D56A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		74D4BFB11C765A7B00AAC8EA /* MapPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 			children = (
 				74D4BFB41C765A7B00AAC8EA /* AppDelegate.swift */,
 				74D4BFB61C765A7B00AAC8EA /* ViewController.swift */,
+				74514FE21C86691C00540EEC /* InfoPage.swift */,
 				747396801C7F9307009D884C /* DataHolder.swift */,
 				74D4BFB81C765A7B00AAC8EA /* Main.storyboard */,
 				74D4BFBB1C765A7B00AAC8EA /* Assets.xcassets */,
@@ -277,6 +280,7 @@
 			files = (
 				74D4BFB71C765A7B00AAC8EA /* ViewController.swift in Sources */,
 				747396811C7F9307009D884C /* DataHolder.swift in Sources */,
+				74514FE31C86691C00540EEC /* InfoPage.swift in Sources */,
 				74D4BFB51C765A7B00AAC8EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
