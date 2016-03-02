@@ -140,7 +140,11 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
             do{
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 
+                
+                
                 if let items = json["results"] as? [[String: AnyObject]]{
+                    
+                    var all_items:[CustomAnnotation] = [] //array to hold all items to be updated to UI later
                     for items in items{
                         //process items here
                         print (items)
@@ -169,19 +173,24 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                             
                             
                             let a = CustomAnnotation(coordinate: coordinate, title: name, subtitle: vicinity, placeId: placeID as! String)
+                            all_items.append(a)
                             
                             
                             
-                            dispatch_async(dispatch_get_main_queue()){
-                                self.mapView.setRegion(region, animated: true)
-                                self.mapView.addAnnotation(a)
-                            }
+                            
                             
                             
                             
                         }
                     }
                     //when finished, update the UI on the main thread
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.mapView.setRegion(region, animated: true)
+                        
+                        for a in all_items{
+                        self.mapView.addAnnotation(a)
+                        }
+                    }
                    
                 }
                 
