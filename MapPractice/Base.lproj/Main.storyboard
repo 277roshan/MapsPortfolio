@@ -58,7 +58,7 @@
         <!--Detail View Controller-->
         <scene sceneID="EP0-SZ-qEl">
             <objects>
-                <viewController id="775-Kk-NzG" customClass="DetailViewController" customModule="MapPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="775-Kk-NzG" customClass="DetailViewController" customModule="MapPractice" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O7Z-kd-625"/>
                         <viewControllerLayoutGuide type="bottom" id="EDz-ec-NsU"/>

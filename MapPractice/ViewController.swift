@@ -14,7 +14,6 @@ import CoreLocation
 var searchKey = ""
 let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
 let delta = 0.02
-
 var latitude = "38.9222"
 var longitude = "-77.0194"
 var center = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
@@ -113,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
   
     
- 
+   //MARK:- Annotations
     
     
     func annotate()
@@ -174,13 +173,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                             
                             let a = CustomAnnotation(coordinate: coordinate, title: name, subtitle: vicinity, placeId: placeID as! String)
                             all_items.append(a)
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                         }
                     }
                     //when finished, update the UI on the main thread
@@ -233,11 +225,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         searchKey = SearchText.text!
         baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
 
-        
-        
-        
         annotate()
-        
         
         return true
     }
@@ -245,14 +233,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
    
     
     
-    //MARK:- Annotations
+  
     
 
-
-    
- 
-//
-//
     
     
     
